@@ -31,22 +31,26 @@ public class DrawingPanel extends JPanel{
      */
     private Image image1, image2;
     private Graphics2D gd;
-    private int oX,oY;
+    private int oX,oY,turn = 0;
     private final SizedStack<Image> undoStack = new SizedStack<>(20);
     private final SizedStack<Image> redoStack = new SizedStack<>(20);
+    private Color color;
     
     DrawingPanel()
     {
         
         setDoubleBuffered(false);
+        color = Color.BLACK;
         addMouseListener(new MouseAdapter(){
             
             public void mousePressed(MouseEvent e) {
+            deleteRedoStack();
             saveToStack(image2);
+            turn = 0;
             oX = e.getX();
             oY = e.getY();
             if (gd != null) {
-                gd.drawRect(oX, oY, 50, 50);
+                gd.fillRect(oX, oY, 50, 50);
             }
             repaint();
             }
@@ -75,14 +79,15 @@ public class DrawingPanel extends JPanel{
         {
             gd.setPaint(Color.white);
             gd.fillRect(0, 0, getSize().width, getSize().height);
-            gd.setPaint(Color.red);
+            setColor(color);
         }
         repaint();
     }
     
-    public void setColor()
+    public void setColor(Color c)
     {
-        gd.setPaint(Color.black);
+        color = c;
+        gd.setPaint(color);
     }
     
     public void undo() {
@@ -100,11 +105,22 @@ public class DrawingPanel extends JPanel{
             setImage(redoStack.pop());
         }
     }
+    
+    private void deleteRedoStack()
+    {
+        while(redoStack.size()>0)
+            redoStack.pop();
+    }
 
     private void setImage(Image img) {
         gd = (Graphics2D) img.getGraphics();
         gd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        gd.setPaint(Color.black);
+        setColor(color);
+        /*if(turn==1)
+        {
+            saveToStack(image2);
+            gd.fillRect(oX, oY, 50, 50);
+        }*/
         image2 = img;
         repaint();
         //return img;
@@ -126,17 +142,35 @@ public class DrawingPanel extends JPanel{
         undoStack.push(copyImage(img));
     }
     
-    public void test()
+    public void up()
     {
-                     oY=oY*2;
-                     if(oY>=getSize().height)
-                     {    oY = oY/2;
-                            oY=+10;
-                     }
-                    undo();
-                    if (gd != null) {
-                        gd.drawRect(oX, oY, 50, 50);
-                    }
-                    repaint();
+        oY--;
+        move();
+    }
+
+    public void down()
+    {
+        oY++;
+        move();
+    }
+    
+    public void right()
+    {
+        oX++;
+        move();
+    }
+    
+    public void left()
+    {
+        oX--;
+        move();
+    }
+    
+    public void move()
+    {
+        /*if (undoStack.size() > 0) {
+            turn = 1;
+            setImage(undoStack.pop());
+        }*/
     }
 }

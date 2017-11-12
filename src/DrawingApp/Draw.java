@@ -31,7 +31,16 @@ public class Draw {
             switch(code)
             {
                 case KeyEvent.VK_UP:
-                    dPanel.test();
+                    dPanel.up();
+                    break;
+                case KeyEvent.VK_DOWN:
+                    dPanel.down();
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    dPanel.right();
+                    break;
+                case KeyEvent.VK_LEFT:
+                    dPanel.left();
                     break;
                 default:
                     

@@ -231,6 +231,9 @@
             </Property>
             <Property name="doubleBuffered" type="boolean" value="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="color1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="color10">
           <Properties>
@@ -238,6 +241,9 @@
               <Color blue="ff" green="ff" red="0" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="color10ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="color8">
           <Properties>
@@ -245,6 +251,9 @@
               <Color blue="ff" green="66" red="66" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="color8ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="color13">
           <Properties>
@@ -252,6 +261,9 @@
               <Color blue="99" green="99" red="99" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="color13ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="color7">
           <Properties>
@@ -259,6 +271,9 @@
               <Color blue="66" green="66" red="ff" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="color7ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="color9">
           <Properties>
@@ -266,6 +281,9 @@
               <Color blue="0" green="0" red="ff" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="color9ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="color12">
           <Properties>
@@ -273,6 +291,9 @@
               <Color blue="99" green="0" red="0" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="color12ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="color3">
           <Properties>
@@ -280,6 +301,9 @@
               <Color blue="0" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="color3ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="color14">
           <Properties>
@@ -297,6 +321,9 @@
               <Color blue="66" green="0" red="66" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="color11ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="color4">
           <Properties>
@@ -304,6 +331,9 @@
               <Color blue="99" green="ff" red="0" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="color4ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="color5">
           <Properties>
@@ -311,6 +341,9 @@
               <Color blue="0" green="99" red="99" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="color5ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="color6">
           <Properties>
@@ -318,6 +351,9 @@
               <Color blue="0" green="99" red="0" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="color6ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="color2">
           <Properties>
@@ -325,6 +361,9 @@
               <Color blue="66" green="ff" red="66" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="color2ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

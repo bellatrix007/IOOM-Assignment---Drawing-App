@@ -91,20 +91,60 @@ public class JFrame1 extends javax.swing.JFrame {
 
         color1.setBackground(new java.awt.Color(255, 255, 255));
         color1.setDoubleBuffered(true);
+        color1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                color1ActionPerformed(evt);
+            }
+        });
 
         color10.setBackground(new java.awt.Color(0, 255, 255));
+        color10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                color10ActionPerformed(evt);
+            }
+        });
 
         color8.setBackground(new java.awt.Color(102, 102, 255));
+        color8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                color8ActionPerformed(evt);
+            }
+        });
 
         color13.setBackground(new java.awt.Color(153, 153, 153));
+        color13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                color13ActionPerformed(evt);
+            }
+        });
 
         color7.setBackground(new java.awt.Color(255, 102, 102));
+        color7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                color7ActionPerformed(evt);
+            }
+        });
 
         color9.setBackground(new java.awt.Color(255, 0, 0));
+        color9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                color9ActionPerformed(evt);
+            }
+        });
 
         color12.setBackground(new java.awt.Color(0, 0, 153));
+        color12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                color12ActionPerformed(evt);
+            }
+        });
 
         color3.setBackground(new java.awt.Color(255, 255, 0));
+        color3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                color3ActionPerformed(evt);
+            }
+        });
 
         color14.setBackground(new java.awt.Color(0, 0, 0));
         color14.addActionListener(new java.awt.event.ActionListener() {
@@ -114,14 +154,39 @@ public class JFrame1 extends javax.swing.JFrame {
         });
 
         color11.setBackground(new java.awt.Color(102, 0, 102));
+        color11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                color11ActionPerformed(evt);
+            }
+        });
 
         color4.setBackground(new java.awt.Color(0, 255, 153));
+        color4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                color4ActionPerformed(evt);
+            }
+        });
 
         color5.setBackground(new java.awt.Color(153, 153, 0));
+        color5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                color5ActionPerformed(evt);
+            }
+        });
 
         color6.setBackground(new java.awt.Color(0, 153, 0));
+        color6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                color6ActionPerformed(evt);
+            }
+        });
 
         color2.setBackground(new java.awt.Color(102, 255, 102));
+        color2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                color2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -301,12 +366,13 @@ public class JFrame1 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void customActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customActionPerformed
-        Color color = JColorChooser.showDialog(null, "Choose Custom Color", Color.white);
-        
+        Color c = JColorChooser.showDialog(null, "Choose Custom Color", Color.white);
+        dP.setColor(c);
     }//GEN-LAST:event_customActionPerformed
 
     private void color14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color14ActionPerformed
-        // TODO add your handling code here:
+        Color c = new Color(0,0,0);
+        dP.setColor(c);
     }//GEN-LAST:event_color14ActionPerformed
 
     private void undoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undoActionPerformed
@@ -316,6 +382,70 @@ public class JFrame1 extends javax.swing.JFrame {
     private void redoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redoActionPerformed
         dP.redo();
     }//GEN-LAST:event_redoActionPerformed
+
+    private void color1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color1ActionPerformed
+        dP.setColor(Color.white);
+    }//GEN-LAST:event_color1ActionPerformed
+
+    private void color2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color2ActionPerformed
+        Color c = new Color(102,255,102);
+        dP.setColor(c);
+    }//GEN-LAST:event_color2ActionPerformed
+
+    private void color3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color3ActionPerformed
+        Color c = new Color(255,255,0);
+        dP.setColor(c);
+    }//GEN-LAST:event_color3ActionPerformed
+
+    private void color4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color4ActionPerformed
+        Color c = new Color(0,255,153);
+        dP.setColor(c);
+    }//GEN-LAST:event_color4ActionPerformed
+
+    private void color5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color5ActionPerformed
+        Color c = new Color(153,153,0);
+        dP.setColor(c);
+    }//GEN-LAST:event_color5ActionPerformed
+
+    private void color6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color6ActionPerformed
+        Color c = new Color(0,153,0);
+        dP.setColor(c);
+    }//GEN-LAST:event_color6ActionPerformed
+
+    private void color7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color7ActionPerformed
+        Color c = new Color(255,102,102);
+        dP.setColor(c);
+    }//GEN-LAST:event_color7ActionPerformed
+
+    private void color8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color8ActionPerformed
+        Color c = new Color(102,102,255);
+        dP.setColor(c);
+    }//GEN-LAST:event_color8ActionPerformed
+
+    private void color9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color9ActionPerformed
+        Color c = new Color(255,0,0);
+        dP.setColor(c);
+    }//GEN-LAST:event_color9ActionPerformed
+
+    private void color10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color10ActionPerformed
+        Color c = new Color(0,255,255);
+        dP.setColor(c);
+    }//GEN-LAST:event_color10ActionPerformed
+
+    private void color11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color11ActionPerformed
+        Color c = new Color(102,0,102);
+        dP.setColor(c);
+    }//GEN-LAST:event_color11ActionPerformed
+
+    private void color12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color12ActionPerformed
+        Color c = new Color(0,0,153);
+        dP.setColor(c);
+    }//GEN-LAST:event_color12ActionPerformed
+
+    private void color13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color13ActionPerformed
+        Color c = new Color(153,153,153);
+        dP.setColor(c);
+    }//GEN-LAST:event_color13ActionPerformed
 
     public DrawingPanel getDP()
     {
