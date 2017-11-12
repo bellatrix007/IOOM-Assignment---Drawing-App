@@ -19,6 +19,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -31,16 +32,19 @@ public class DrawingPanel extends JPanel{
      */
     private Image image1, image2;
     private Graphics2D gd;
-    private int oX,oY,turn = 0;
+    private int oX,oY,turn = 0,l,b;
     private final SizedStack<Image> undoStack = new SizedStack<>(20);
     private final SizedStack<Image> redoStack = new SizedStack<>(20);
     private Color color;
+    private Rectangle presentRect;
     
     DrawingPanel()
     {
         
         setDoubleBuffered(false);
         color = Color.BLACK;
+        l=b=0;
+        DrawingPanel p = this;
         addMouseListener(new MouseAdapter(){
             
             public void mousePressed(MouseEvent e) {
@@ -51,8 +55,12 @@ public class DrawingPanel extends JPanel{
             oY = e.getY();
             checkX();
             checkY();
+            JFrame1 topFrame = (JFrame1) SwingUtilities.getWindowAncestor(p);
+            l = topFrame.getL();
+            b = topFrame.getB();
             if (gd != null) {
-                gd.drawRect(oX, oY, 50, 50);
+                presentRect = new Rectangle(oX, oY, l, b);
+                gd.fillRect(oX, oY, l, b);
             }
             repaint();
             }
@@ -121,7 +129,7 @@ public class DrawingPanel extends JPanel{
         if(turn==1)
         {
             saveToStack(img);
-            gd.drawRect(oX, oY, 50, 50);
+            gd.fillRect(oX, oY, l, b);
         }
         image2 = img;
         repaint();
@@ -183,16 +191,16 @@ public class DrawingPanel extends JPanel{
     
     public void checkX()
     {
-        if((oX+50+1)>getSize().width)
-            oX = getSize().width - 50 - 1;
+        if((oX+l+1)>getSize().width)
+            oX = getSize().width - l - 1;
         if(oX<0)
             oX = 0;
     }
     
     public void checkY()
     {
-        if((oY+50+1)>getSize().height)
-            oY = getSize().height - 50 - 1;
+        if((oY+b+1)>getSize().height)
+            oY = getSize().height - b - 1;
         if(oY<0)
             oY = 0;
     }

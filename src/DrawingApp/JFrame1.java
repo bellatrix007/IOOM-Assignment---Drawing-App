@@ -12,6 +12,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -86,6 +87,18 @@ public class JFrame1 extends javax.swing.JFrame {
 
         size.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         size.setText("Enter Size:");
+
+        lTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lTextFieldActionPerformed(evt);
+            }
+        });
+
+        bTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bTextFieldActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -281,6 +294,11 @@ public class JFrame1 extends javax.swing.JFrame {
         });
 
         clear.setText("Clear");
+        clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearActionPerformed(evt);
+            }
+        });
 
         custom.setText("Custom");
         custom.addActionListener(new java.awt.event.ActionListener() {
@@ -368,6 +386,7 @@ public class JFrame1 extends javax.swing.JFrame {
     private void customActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customActionPerformed
         Color c = JColorChooser.showDialog(null, "Choose Custom Color", Color.white);
         dP.setColor(c);
+        setFocusable();
     }//GEN-LAST:event_customActionPerformed
 
     private void color14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color14ActionPerformed
@@ -463,12 +482,48 @@ public class JFrame1 extends javax.swing.JFrame {
         setFocusable();
     }//GEN-LAST:event_color13ActionPerformed
 
+    private void lTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lTextFieldActionPerformed
+        setFocusable();
+    }//GEN-LAST:event_lTextFieldActionPerformed
+
+    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
+        dP.clear();
+        setFocusable();
+    }//GEN-LAST:event_clearActionPerformed
+
+    private void bTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTextFieldActionPerformed
+        setFocusable();
+    }//GEN-LAST:event_bTextFieldActionPerformed
+
     private void setFocusable()
     {
         dPanel.setFocusable(true);
         dPanel.requestFocusInWindow();
     }
     
+    public int getL()
+    {
+        try{
+            int l = Integer.parseInt(lTextField.getText());
+            return l;
+        }
+        catch(NumberFormatException e)
+        {
+            return 50;
+        }
+    }
+    
+    public int getB()
+    {
+        try{
+            int b = Integer.parseInt(bTextField.getText());
+            return b;
+        }
+        catch(NumberFormatException e)
+        {
+            return 50;
+        }
+    }
     public DrawingPanel getDP()
     {
         return dP;
