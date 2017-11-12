@@ -49,8 +49,10 @@ public class DrawingPanel extends JPanel{
             turn = 0;
             oX = e.getX();
             oY = e.getY();
+            checkX();
+            checkY();
             if (gd != null) {
-                gd.fillRect(oX, oY, 50, 50);
+                gd.drawRect(oX, oY, 50, 50);
             }
             repaint();
             }
@@ -116,11 +118,11 @@ public class DrawingPanel extends JPanel{
         gd = (Graphics2D) img.getGraphics();
         gd.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         setColor(color);
-        /*if(turn==1)
+        if(turn==1)
         {
-            saveToStack(image2);
-            gd.fillRect(oX, oY, 50, 50);
-        }*/
+            saveToStack(img);
+            gd.drawRect(oX, oY, 50, 50);
+        }
         image2 = img;
         repaint();
         //return img;
@@ -145,32 +147,53 @@ public class DrawingPanel extends JPanel{
     public void up()
     {
         oY--;
+        checkY();
         move();
     }
 
     public void down()
     {
         oY++;
+        checkY();
         move();
     }
     
     public void right()
     {
         oX++;
+        checkX();
         move();
     }
     
     public void left()
     {
         oX--;
+        checkX();
         move();
     }
     
     public void move()
     {
-        /*if (undoStack.size() > 0) {
+        gd.drawString(""+undoStack.size(), oX, oY);
+        if (undoStack.size() > 0) {
             turn = 1;
             setImage(undoStack.pop());
-        }*/
+        }
+    }
+    
+    public void checkX()
+    {
+        if((oX+50+1)>getSize().width)
+            oX = getSize().width - 50 - 1;
+        if(oX<0)
+            oX = 0;
+    }
+    
+    public void checkY()
+    {
+        if((oY+50+1)>getSize().height)
+            oY = getSize().height - 50 - 1;
+        if(oY<0)
+            oY = 0;
     }
 }
