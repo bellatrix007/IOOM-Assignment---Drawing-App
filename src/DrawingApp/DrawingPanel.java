@@ -33,6 +33,7 @@ public class DrawingPanel extends JPanel{
     private Graphics2D gd;
     private int oX,oY;
     private final SizedStack<Image> undoStack = new SizedStack<>(20);
+    private final SizedStack<Image> redoStack = new SizedStack<>(20);
     
     DrawingPanel()
     {
@@ -86,7 +87,17 @@ public class DrawingPanel extends JPanel{
     
     public void undo() {
         if (undoStack.size() > 0) {
+            redoStack.push(copyImage(image2));
             setImage(undoStack.pop());
+        }
+    }
+    
+    public void redo()
+    {
+        if(redoStack.size()>0)
+        {
+            saveToStack(image2);
+            setImage(redoStack.pop());
         }
     }
 
@@ -96,6 +107,7 @@ public class DrawingPanel extends JPanel{
         gd.setPaint(Color.black);
         image2 = img;
         repaint();
+        //return img;
     }
 
     public void setBackground(Image img) {
@@ -114,7 +126,7 @@ public class DrawingPanel extends JPanel{
         undoStack.push(copyImage(img));
     }
     
-    public void hello()
+    public void test()
     {
                      oY=oY*2;
                      if(oY>=getSize().height)

@@ -31,7 +31,7 @@ public class Draw {
             switch(code)
             {
                 case KeyEvent.VK_UP:
-                    dPanel.hello();
+                    dPanel.test();
                     break;
                 default:
                     
@@ -52,9 +52,7 @@ public class Draw {
     public void show()
     {
         JFrame1 f = new JFrame1("Drawing App");
-        JPanel p = f.getDP();
-        if(p instanceof DrawingPanel)
-            dPanel = (DrawingPanel) p;
+        dPanel = f.getDP();
         
         dPanel.addKeyListener(kL);
         dPanel.setFocusable(true);
