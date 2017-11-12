@@ -11,13 +11,12 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-import javax.swing.JComponent;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
@@ -37,6 +36,7 @@ public class DrawingPanel extends JPanel{
     private final SizedStack<Image> redoStack = new SizedStack<>(20);
     private Color color;
     private Rectangle presentRect;
+    DrawingPanel p = this;
     
     DrawingPanel()
     {
@@ -44,7 +44,7 @@ public class DrawingPanel extends JPanel{
         setDoubleBuffered(false);
         color = Color.BLACK;
         l=b=0;
-        DrawingPanel p = this;
+        p = this;
         addMouseListener(new MouseAdapter(){
             
             public void mousePressed(MouseEvent e) {
@@ -116,6 +116,16 @@ public class DrawingPanel extends JPanel{
         }
     }
     
+    public void save() throws IOException
+    {
+        Rectangle rec = p.getBounds();
+        BufferedImage bufferedImage = new BufferedImage(rec.width, rec.height,BufferedImage.TYPE_INT_ARGB);
+        p.paint(bufferedImage.getGraphics());
+        File temp = new File("screenshot.png");
+        ImageIO.write(bufferedImage, "png", temp);
+        // Delete temp file when program exits.
+        temp.deleteOnExit();
+    }
     private void deleteRedoStack()
     {
         while(redoStack.size()>0)
