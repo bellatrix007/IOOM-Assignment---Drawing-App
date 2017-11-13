@@ -62,8 +62,8 @@ public class Draw {
         dPanel = f.getDP();
         
         dPanel.addKeyListener(kL);
-        dPanel.setFocusable(true);
-        dPanel.requestFocusInWindow();
+        //dPanel.setFocusable(true);
+        //dPanel.requestFocusInWindow();
         
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setVisible(true);

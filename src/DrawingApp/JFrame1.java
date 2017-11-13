@@ -384,113 +384,95 @@ public class JFrame1 extends javax.swing.JFrame {
     private void customActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customActionPerformed
         Color c = JColorChooser.showDialog(null, "Choose Custom Color", Color.white);
         dP.setColor(c);
-        setFocusable();
     }//GEN-LAST:event_customActionPerformed
 
     private void color14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color14ActionPerformed
         Color c = new Color(0,0,0);
-        dP.setColor(c);
-        setFocusable();
+        dP.setColor(c); 
     }//GEN-LAST:event_color14ActionPerformed
 
     private void undoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_undoActionPerformed
-        dP.undo(); 
-        setFocusable();
+        dP.undo();  
     }//GEN-LAST:event_undoActionPerformed
 
     private void redoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redoActionPerformed
         dP.redo();
-        setFocusable();
     }//GEN-LAST:event_redoActionPerformed
 
     private void color1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color1ActionPerformed
         dP.setColor(Color.white);
-        setFocusable();
     }//GEN-LAST:event_color1ActionPerformed
 
     private void color2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color2ActionPerformed
         Color c = new Color(102,255,102);
         dP.setColor(c);
-        setFocusable();
     }//GEN-LAST:event_color2ActionPerformed
 
     private void color3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color3ActionPerformed
         Color c = new Color(255,255,0);
         dP.setColor(c);
-        setFocusable();
     }//GEN-LAST:event_color3ActionPerformed
 
     private void color4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color4ActionPerformed
         Color c = new Color(0,255,153);
         dP.setColor(c);
-        setFocusable();
     }//GEN-LAST:event_color4ActionPerformed
 
     private void color5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color5ActionPerformed
         Color c = new Color(153,153,0);
         dP.setColor(c);
-        setFocusable();
     }//GEN-LAST:event_color5ActionPerformed
 
     private void color6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color6ActionPerformed
         Color c = new Color(0,153,0);
         dP.setColor(c);
-        setFocusable();
     }//GEN-LAST:event_color6ActionPerformed
 
     private void color7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color7ActionPerformed
         Color c = new Color(255,102,102);
         dP.setColor(c);
-        setFocusable();
     }//GEN-LAST:event_color7ActionPerformed
 
     private void color8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color8ActionPerformed
         Color c = new Color(102,102,255);
         dP.setColor(c);
-        setFocusable();
     }//GEN-LAST:event_color8ActionPerformed
 
     private void color9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color9ActionPerformed
         Color c = new Color(255,0,0);
         dP.setColor(c);
-        setFocusable();
     }//GEN-LAST:event_color9ActionPerformed
 
     private void color10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color10ActionPerformed
         Color c = new Color(0,255,255);
         dP.setColor(c);
-        setFocusable();
     }//GEN-LAST:event_color10ActionPerformed
 
     private void color11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color11ActionPerformed
         Color c = new Color(102,0,102);
         dP.setColor(c);
-        setFocusable();
     }//GEN-LAST:event_color11ActionPerformed
 
     private void color12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color12ActionPerformed
         Color c = new Color(0,0,153);
         dP.setColor(c);
-        setFocusable();
     }//GEN-LAST:event_color12ActionPerformed
 
     private void color13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_color13ActionPerformed
         Color c = new Color(153,153,153);
         dP.setColor(c);
-        setFocusable();
     }//GEN-LAST:event_color13ActionPerformed
 
     private void lTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lTextFieldActionPerformed
-        setFocusable();
+
     }//GEN-LAST:event_lTextFieldActionPerformed
 
     private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
         dP.clear();
-        setFocusable();
     }//GEN-LAST:event_clearActionPerformed
 
     private void bTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bTextFieldActionPerformed
-        setFocusable();
+
     }//GEN-LAST:event_bTextFieldActionPerformed
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
@@ -503,12 +485,6 @@ public class JFrame1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_saveActionPerformed
 
-    private void setFocusable()
-    {
-        dPanel.setFocusable(true);
-        dPanel.requestFocusInWindow();
-    }
-    
     public int getL()
     {
         try{
