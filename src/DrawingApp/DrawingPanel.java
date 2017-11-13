@@ -11,13 +11,12 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-import javax.swing.JComponent;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
@@ -32,11 +31,11 @@ public class DrawingPanel extends JPanel{
      */
     private Image image1, image2;
     private Graphics2D gd;
-    private int oX,oY,turn = 0,l,b;
+    private int oX=0,oY=0,cX,cY,turn = 0,l,b;
     private final SizedStack<Image> undoStack = new SizedStack<>(20);
     private final SizedStack<Image> redoStack = new SizedStack<>(20);
     private Color color;
-    private Rectangle presentRect;
+    DrawingPanel p;
     
     DrawingPanel()
     {
@@ -44,28 +43,40 @@ public class DrawingPanel extends JPanel{
         setDoubleBuffered(false);
         color = Color.BLACK;
         l=b=0;
-        DrawingPanel p = this;
+        p = this;
+        
         addMouseListener(new MouseAdapter(){
             
+            @Override
             public void mousePressed(MouseEvent e) {
-            deleteRedoStack();
-            saveToStack(image2);
-            turn = 0;
-            oX = e.getX();
-            oY = e.getY();
-            checkX();
-            checkY();
-            JFrame1 topFrame = (JFrame1) SwingUtilities.getWindowAncestor(p);
-            l = topFrame.getL();
-            b = topFrame.getB();
-            if (gd != null) {
-                presentRect = new Rectangle(oX, oY, l, b);
-                gd.fillRect(oX, oY, l, b);
-            }
-            repaint();
+            
+                cX = e.getX();
+                cY = e.getY();
+                if((cX>=oX&&cX<=(oX+l+1))&&(cY>=oY&&cY<=(oY+b+1)))
+                {
+                    p.setFocusable(true);
+                    p.requestFocusInWindow();
+                }
+                else
+                {
+                    deleteRedoStack();
+                    saveToStack(image2);
+                    turn = 0;
+                    oX=cX;
+                    oY=cY;
+                    JFrame1 topFrame = (JFrame1) SwingUtilities.getWindowAncestor(p);
+                    l = topFrame.getL();
+                    b = topFrame.getB();
+                    checkX();
+                    checkY();
+                    if (gd != null) {
+                        gd.fillRect(oX, oY, l, b);
+                    }
+                    p.setFocusable(false);
+                    repaint();
+                }
             }
         });
-        
     }
             
     protected void paintComponent(Graphics g)
@@ -116,6 +127,16 @@ public class DrawingPanel extends JPanel{
         }
     }
     
+    public void save() throws IOException
+    {
+        Rectangle rec = p.getBounds();
+        BufferedImage bufferedImage = new BufferedImage(rec.width, rec.height,BufferedImage.TYPE_INT_ARGB);
+        p.paint(bufferedImage.getGraphics());
+        File temp = new File("screenshot.png");
+        ImageIO.write(bufferedImage, "png", temp);
+        // Delete temp file when program exits.
+        temp.deleteOnExit();
+    }
     private void deleteRedoStack()
     {
         while(redoStack.size()>0)
@@ -133,7 +154,6 @@ public class DrawingPanel extends JPanel{
         }
         image2 = img;
         repaint();
-        //return img;
     }
 
     public void setBackground(Image img) {
@@ -182,7 +202,6 @@ public class DrawingPanel extends JPanel{
     
     public void move()
     {
-        gd.drawString(""+undoStack.size(), oX, oY);
         if (undoStack.size() > 0) {
             turn = 1;
             setImage(undoStack.pop());

@@ -5,8 +5,6 @@
  */
 package DrawingApp;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import javax.swing.*;
@@ -64,8 +62,8 @@ public class Draw {
         dPanel = f.getDP();
         
         dPanel.addKeyListener(kL);
-        dPanel.setFocusable(true);
-        dPanel.requestFocusInWindow();
+        //dPanel.setFocusable(true);
+        //dPanel.requestFocusInWindow();
         
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setVisible(true);
