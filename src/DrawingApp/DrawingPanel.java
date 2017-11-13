@@ -62,13 +62,13 @@ public class DrawingPanel extends JPanel{
                     deleteRedoStack();
                     saveToStack(image2);
                     turn = 0;
-                        oX=cX;
-                        oY=cY;
-                    checkX();
-                    checkY();
+                    oX=cX;
+                    oY=cY;
                     JFrame1 topFrame = (JFrame1) SwingUtilities.getWindowAncestor(p);
                     l = topFrame.getL();
                     b = topFrame.getB();
+                    checkX();
+                    checkY();
                     if (gd != null) {
                         gd.fillRect(oX, oY, l, b);
                     }
